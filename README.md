@@ -466,6 +466,34 @@ The following prompt will be returned:
 - Open your browser to http://34.216.141.149 (Insert your ip address here) or http://ec2-34-216-141-149.us-west-2.compute.amazonaws.com.
 
 
+## Bug Fixes:
+-If you run into something similar to the following:
+ ```
+  [Sun Jan 20 19:32:38.873878 2019] [wsgi:error] [pid 15538:tid 140628403083008] [client 204.16.236.110:18462] 
+      File "/var/www/catalog/catalog/__    init__.py", line 22, in <module>
+  [Sun Jan 20 19:32:38.873959 2019] [wsgi:error] [pid 15538:tid 140628403083008] [client 204.16.236.110:18462]     
+      open('client_secrets.json', 'r').read())['web']['client_id']
+
+  ```
+  
+-The solution is to edit the __init__.py file:
+
+Update this line: 
+  ```
+  CLIENT_ID = json.loads(
+    open('client_secrets.json', 'r').read())['web']['client_id']
+  ```
+
+To this:
+
+  ```
+  
+  APP_PATH = '/var/www/catalog/
+  CLIENT_ID = json.loads(open(APP_PATH + 'client_secrets.json', 'r').read())['web']['client_id']
+  
+  ```
+
+
 
 ## Very Helpful commands
 
