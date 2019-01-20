@@ -146,7 +146,7 @@ Upon logging back in you want to see the following:
 
 
 
-## Give Udacity Grade Access:
+## Give Udacity 'grader' Access:
 
 
 ### Step 1: Create a new user named `grader`
@@ -325,7 +325,7 @@ run `sudo -l` and enter the password again. The output should match the followin
 
   ```
 
-- In `database.py`, replace line 9:
+- In `database.py`, replace line:
    ```
    # engine = create_engine("sqlite:///catalog.db")
    engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
@@ -342,7 +342,7 @@ origins.
 as authorized redirect URI.
 - Download the corresponding JSON file, open it et copy the contents.
 - Open `/var/www/catalog/catalog/client_secrets.json` and paste the previous contents into the this file.
-- Replace the client ID to line 25 of the `templates/login.html` file in the project directory.
+- Replace the client ID of the `templates/login.html` file in the project directory.
 
 
 ### Step 6: Install the virtual environment and dependencies
